@@ -1,0 +1,28 @@
+---
+title: "Certification of Participation"
+date: {{date}}
+output:
+  BiocStyle::html_document:
+    in_header: header.html
+    toc: false
+    number_sections: false
+---
+
+{{fullname}}
+{{address}}
+
+To Whom It May Concern:
+
+On behalf of the Organizing Committee for {{event}} held in {{location}},
+thank you for your participation. This letter certifies that {{fullname}}
+was a participant at {{event}}.
+
+Please visit {{eventurl}} for additional conference information.
+
+Yours sincerely,
+
+<footer>
+<p>Vincent J. Carey
+<br>Bioconductor Project Lead
+</p>
+</footer>
