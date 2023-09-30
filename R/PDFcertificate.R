@@ -47,5 +47,5 @@ certificate <- function(template = "certificate", data, knitDir) {
         clean = FALSE
     )
 
-    outPDF
+    file.path(tempdir(), outPDF)
 }
