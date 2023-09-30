@@ -8,6 +8,10 @@ Authors@R: person(
 Description: A shiny app to generate conference certificates from a template.
   The interactive app allows the user to enter their name and download
   a PDF file.
+Imports:
+  BiocBaseUtils,
+  rmarkdown,
+  whisker
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
