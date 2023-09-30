@@ -1,0 +1,48 @@
+---
+title: ''
+output:
+  pdf_document:
+    includes:
+      in_header: {{preamble}}
+latex_engine: xelatex
+documentclass: letter
+papersize: letter
+---
+
+\pagenumbering{gobble}
+
+\begin{letter}
+{
+  Kathleen Kelly,\\
+  The Shop Around The Corner,\\
+  Small Corner, NYC.
+}
+
+\begin{center}
+  \begin{picture}(1000,1)
+    \put(0,0){\includegraphics[width=\textwidth]{ {{bioclogo}} }}
+  \end{picture}
+\end{center}
+
+\vspace{2cm}
+\hspace{4cm}
+
+\opening{To Whom It May Concern:}
+
+On behalf of the Organizing Committee for {{eventname}} held in {{eventlocation}},
+thank you for your participation. This letter certifies that {{fullname}}
+was a participant at {{eventname}}.
+
+Please visit {{eventurl}} for additional conference information.
+
+\begin{flushright}
+Sincerely,\\[.025cm]
+%% \includegraphics[width=3cm]{signature.png}\\[.025cm]
+Name Surname
+\end{flushright}
+
+\begin{flushleft}
+\includegraphics[height=4cm]{ {{eventsticker}} }
+\end{flushleft}
+
+\end{letter}

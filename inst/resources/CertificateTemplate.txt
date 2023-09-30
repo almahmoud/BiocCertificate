@@ -1,0 +1,29 @@
+---
+title: ''
+output: pdf_document
+latex_engine: xelatex
+classoption: landscape
+header-includes:
+- \renewcommand{\familydefault}{\sfdefault}
+---
+
+\pagenumbering{gobble}
+
+\begin{center}
+  {\Huge\bf Certificate of Attendance} \\
+  \vfill
+  {\Huge\bf {{fullname}} } \\
+  \vfill
+  {\Huge\it {{eventname}} }
+  \bigskip \\
+  {\Large\it  {{eventdate}} }
+  \bigskip \\
+  {\Large\it {{eventlocation}} } \\
+\end{center}
+
+\vfill
+
+\begin{center}
+\includegraphics[height=4cm]{ {{bioclogo}} }
+\includegraphics[height=6cm]{ {{eventsticker}} }
+\end{center}
