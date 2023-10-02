@@ -14,16 +14,16 @@ header-includes:
   \vfill
   {\Huge\bf {{fullname}} } \\
   \vfill
-  {\Huge\it {{eventname}} }
+  {\Huge\it {{ename}} }
   \bigskip \\
-  {\Large\it  {{eventdate}} }
+  {\Large\it  {{edate}} }
   \bigskip \\
-  {\Large\it {{eventlocation}} } \\
+  {\Large\it {{elocation}} } \\
 \end{center}
 
 \vfill
 
 \begin{center}
 \includegraphics[height=4cm]{ {{bioclogo}} }
-\includegraphics[height=6cm]{ {{eventsticker}} }
+%% \includegraphics[height=6cm]{ {{esticker}} }
 \end{center}

@@ -29,11 +29,11 @@ papersize: letter
 
 \opening{To Whom It May Concern:}
 
-On behalf of the Organizing Committee for {{eventname}} held in {{eventlocation}},
+On behalf of the Organizing Committee for {{ename}} held in {{elocation}},
 thank you for your participation. This letter certifies that {{fullname}}
-was a participant at {{eventname}}.
+was a participant at {{ename}}.
 
-Please visit {{eventurl}} for additional conference information.
+Please visit {{eurl}} for additional conference information.
 
 \begin{flushright}
 Sincerely,\\[.025cm]
@@ -42,7 +42,7 @@ Name Surname
 \end{flushright}
 
 \begin{flushleft}
-\includegraphics[height=4cm]{ {{eventsticker}} }
+\includegraphics[height=4cm]{ {{esticker}} }
 \end{flushleft}
 
 \end{letter}
