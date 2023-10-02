@@ -16,11 +16,12 @@ templatePath <- function(file = c("certificate", "letter")) {
         stop(
             "<internal> 'data' does not have required column names"
         )
+    manData <- data[, .MANDATORY_DATA_NAMES]
     datavalid <- vapply(
-        data, function(x) BiocBaseUtils::isScalarCharacter(x), logical(1L)
+        manData, function(x) BiocBaseUtils::isScalarCharacter(x), logical(1L)
     )
     if (!all(datavalid))
-        stop("Columns do not have valid data: ", names(data)[!datavalid])
+        stop("Columns do not have valid data: ", names(manData)[!datavalid])
     TRUE
 }
 
