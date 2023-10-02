@@ -72,6 +72,7 @@ BiocCertificate <- function(...) {
                         textAreaInput(
                             "address",
                             "Mailing address",
+                            height = "100px",
                             placeholder = paste0(
                                 "123 Fake St.\nSpringfield",
                                 "\nZipcode\nUnited States"
