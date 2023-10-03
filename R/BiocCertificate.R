@@ -102,11 +102,17 @@ BiocCertificate <- function(...) {
                             )
                         )
                     ),
-                    width = 6
+                    width = 4
                 ) # sidebarPanel
             ), # div
             mainPanel(
-                width = 4
+                hidden(
+                    div(
+                        id = "viewer",
+                        htmlOutput("pdfviewer"),
+                    )
+                ),
+                width = 6
             )
         ) # sidebarLayout
     ) # fluidPage
@@ -150,6 +156,7 @@ BiocCertificate <- function(...) {
                 show(id = "error", anim = TRUE, animType = "fade")
             }, finally = {
                 enable("download")
+                show("viewer")
                 hide("submit_msg")
             })
         })
@@ -162,7 +169,17 @@ BiocCertificate <- function(...) {
             },
             contentType = "application/pdf"
         )
+        output$pdfviewer <- renderText({
+            return(paste0(
+                '<iframe style="height:600px; width:100%" src="',
+                paste0(
+                    "http://127.0.0.1:6056/",
+                    certificate(.data = fdata)
+                ),
+                '"></iframe>'
+            ))
+        })
     }
-
+    options(shiny.port = 6056)
     shinyApp(ui, server)
 }

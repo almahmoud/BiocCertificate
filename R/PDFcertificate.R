@@ -37,6 +37,8 @@ templatePath <- function(file = c("certificate", "letter")) {
 }
 
 certificate <- function(template = "certificate", .data, file) {
+    if (missing(file))
+        file <- tempfile(fileext = ".pdf")
     .data <- .growData(.data)
     .checkData(.data)
     template <- templatePath(template)
@@ -48,7 +50,7 @@ certificate <- function(template = "certificate", .data, file) {
     RmdFile <- tempfile(fileext = ".Rmd")
     writeLines(tmpRmd, RmdFile)
     rmarkdown::render(
-        input = RmdFile, output_file = file, quiet = TRUE,
-        clean = FALSE
+        input = RmdFile, output_file = file, quiet = TRUE
     )
+    file
 }
