@@ -12,7 +12,7 @@ using the `BiocCertificate()` main function.
 
 <a href="https://github.com/Bioconductor/BiocCertificate">
 <img src="https://raw.githubusercontent.com/Bioconductor/BiocCertificate/devel/inst/images/BiocCertificateForm.png"
-width="658" height="900"/>
+width="600" height="439"/>
 </a>
 
 ## Supported Events
