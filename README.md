@@ -15,6 +15,9 @@ using the `BiocCertificate()` main function.
 width="600" height="439"/>
 </a>
 
+Attendees must use a valid event ID, e.g., `eurobioc2023` or `bioc2023` to
+generate the PDF certificate.
+
 ## Supported Events
 
 A `yml` file of events is located in `inst/resources/events.yml`. The file
