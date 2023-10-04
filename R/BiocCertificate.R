@@ -14,11 +14,10 @@ appCSS <- paste(
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
 #' @export
 BiocCertificate <- function(...) {
-    old <- options(
+    options(
         shiny.host = "127.0.0.1",
         shiny.port = 8080
     )
-    on.exit(options(old))
     fieldsMandatory <- c("eid", "edate", "elocation", "fullname")
     fieldsAll <- c(
         "eid", "ename", "edate", "elocation", "eurl", "fullname", "address"
@@ -177,7 +176,6 @@ BiocCertificate <- function(...) {
                     )
                 )
             )
-            message(cert_file)
             return(paste0(
                 '<iframe style="height:600px; width:100%" src="',
                 cert_file,
