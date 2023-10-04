@@ -6,8 +6,13 @@
         prefix = "images",
         directoryPath = system.file("images", package = pkgname)
     )
+    shiny::addResourcePath(
+        prefix = "temp",
+        directoryPath = tempdir()
+    )
 }
 
 .onUnload <- function(libname, pkgname) {
     shiny::removeResourcePath("images")
+    shiny::removeResourcePath("temp")
 }

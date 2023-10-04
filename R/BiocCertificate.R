@@ -14,6 +14,11 @@ appCSS <- paste(
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
 #' @export
 BiocCertificate <- function(...) {
+    old <- options(
+        shiny.host = "127.0.0.1",
+        shiny.port = 8080
+    )
+    on.exit(options(old))
     fieldsMandatory <- c("eid", "edate", "elocation", "fullname")
     fieldsAll <- c(
         "eid", "ename", "edate", "elocation", "eurl", "fullname", "address"
@@ -89,8 +94,7 @@ BiocCertificate <- function(...) {
                     hidden(
                         div(
                             id = "render_msg",
-                            h3("Review the document for accuracy"),
-                            downloadButton("download", "Download certificate")
+                            h3("Review the document for accuracy")
                         )
                     ),
                     hidden(
@@ -102,7 +106,7 @@ BiocCertificate <- function(...) {
                             )
                         )
                     ),
-                    width = 4
+                    width = 3
                 ) # sidebarPanel
             ), # div
             mainPanel(
@@ -112,7 +116,7 @@ BiocCertificate <- function(...) {
                         htmlOutput("pdfviewer"),
                     )
                 ),
-                width = 6
+                width = 9
             )
         ) # sidebarLayout
     ) # fluidPage
@@ -155,31 +159,31 @@ BiocCertificate <- function(...) {
                 html("error_msg", e$message)
                 show(id = "error", anim = TRUE, animType = "fade")
             }, finally = {
-                enable("download")
                 show("viewer")
                 hide("submit_msg")
             })
         })
-        output$download <- downloadHandler(
-            filename = function() {
-                paste0(gsub("\\s+", "_", input$fullname), "_certificate.pdf")
-            },
-            content = function(file) {
-                certificate(.data = fdata, file = file)
-            },
-            contentType = "application/pdf"
-        )
         output$pdfviewer <- renderText({
+            local <- paste0(
+                "http://", getOption("shiny.host"),
+                ":", getOption("shiny.port"), "/"
+            )
+            cert_file <- paste0(
+                local,
+                certificate(
+                    .data = fdata,
+                    file =  paste0(
+                        gsub("\\s+", "_", input$fullname), "_certificate.pdf"
+                    )
+                )
+            )
+            message(cert_file)
             return(paste0(
                 '<iframe style="height:600px; width:100%" src="',
-                paste0(
-                    "http://127.0.0.1:6056/",
-                    certificate(.data = fdata)
-                ),
+                cert_file,
                 '"></iframe>'
             ))
         })
     }
-    options(shiny.port = 6056)
     shinyApp(ui, server)
 }

@@ -37,8 +37,7 @@ templatePath <- function(file = c("certificate", "letter")) {
 }
 
 certificate <- function(template = "certificate", .data, file) {
-    if (missing(file))
-        file <- tempfile(fileext = ".pdf")
+    stub <- basename(file)
     .data <- .growData(.data)
     .checkData(.data)
     template <- templatePath(template)
@@ -52,5 +51,5 @@ certificate <- function(template = "certificate", .data, file) {
     rmarkdown::render(
         input = RmdFile, output_file = file, quiet = TRUE
     )
-    file
+    file.path("temp", stub)
 }
