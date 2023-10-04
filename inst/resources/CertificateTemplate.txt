@@ -25,5 +25,6 @@ header-includes:
 
 \begin{center}
 \includegraphics[height=4cm]{ {{bioclogo}} }
-%% \includegraphics[height=6cm]{ {{esticker}} }
+\hfill
+\includegraphics[height=6cm]{ {{esticker}} }
 \end{center}

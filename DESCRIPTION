@@ -13,7 +13,8 @@ Imports:
   BiocBaseUtils,
   rmarkdown,
   shinyjs,
-  whisker
+  whisker,
+  yaml
 License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

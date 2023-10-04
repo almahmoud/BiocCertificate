@@ -27,13 +27,13 @@ templatePath <- function(file = c("certificate", "letter")) {
 
 .growData <- function(.data) {
     ## TODO: auto fill based on Event ID
+    eid <- .data[["eid"]]
+    edf <- eventData(eid)
     elogo <- system.file(
-        "resources", "bioconductor_logo_rgb.png",
+        "images", "bioconductor_logo_rgb.png",
         package = "BiocCertificates", mustWork = TRUE
     )
-    cbind.data.frame(
-        .data, bioclogo = elogo
-    )
+    cbind.data.frame(.data, edf, bioclogo = elogo)
 }
 
 certificate <- function(template = "certificate", .data, file) {
@@ -49,7 +49,7 @@ certificate <- function(template = "certificate", .data, file) {
     RmdFile <- tempfile(fileext = ".Rmd")
     writeLines(tmpRmd, RmdFile)
     rmarkdown::render(
-        input = RmdFile, output_file = file, quiet = TRUE
+        input = RmdFile, output_file = file, quiet = TRUE, clean = FALSE
     )
     file.path("temp", stub)
 }

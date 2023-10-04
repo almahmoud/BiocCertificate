@@ -9,6 +9,8 @@ appCSS <- paste(
     ".mandatory_star { color: red; }", "#error { color: red; }", sep = "\n"
 )
 
+.MANDATORY_INPUT_FIELDS <- c("eid", "fullname")
+
 .MANDATORY_DATA_NAMES <- c("eid", "ename", "edate", "elocation", "fullname")
 
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
@@ -18,10 +20,7 @@ BiocCertificate <- function(...) {
         shiny.host = "127.0.0.1",
         shiny.port = 8080
     )
-    fieldsMandatory <- c("eid", "edate", "elocation", "fullname")
-    fieldsAll <- c(
-        "eid", "ename", "edate", "elocation", "eurl", "fullname", "address"
-    )
+    fieldsAll <- c("eid", "ename", "fullname", "address")
     ui <- fluidPage(
         shinyjs::useShinyjs(),
         inlineCSS(appCSS),
@@ -57,16 +56,6 @@ BiocCertificate <- function(...) {
                             "ename",
                             "Event Name",
                             placeholder = "Bioconductor ####"
-                        ),
-                        textInput(
-                            "edate",
-                            mandatory("Event Dates"),
-                            placeholder = "MONTH ## - ##, YEAR"
-                        ),
-                        textInput(
-                            "elocation",
-                            mandatory("Event Location"),
-                            placeholder = "City, State, Country"
                         ),
                         textInput(
                             "fullname",
@@ -132,7 +121,7 @@ BiocCertificate <- function(...) {
         })
         observe({
             mandatoryFilled <- vapply(
-                .MANDATORY_DATA_NAMES,
+                .MANDATORY_INPUT_FIELDS,
                 function(x) {
                     BiocBaseUtils::isScalarCharacter(input[[x]])
                 },
@@ -149,7 +138,7 @@ BiocCertificate <- function(...) {
         })
         observeEvent(input$submit, {
             tryCatch({
-                fdata <<- formData()
+                fdata <- formData()
                 hide("form")
                 hide("error")
                 show("render_msg")
@@ -170,14 +159,15 @@ BiocCertificate <- function(...) {
             cert_file <- paste0(
                 local,
                 certificate(
-                    .data = fdata,
+                    .data = formData(),
                     file =  paste0(
                         gsub("\\s+", "_", input$fullname), "_certificate.pdf"
                     )
                 )
             )
+            message(cert_file)
             return(paste0(
-                '<iframe style="height:600px; width:100%" src="',
+                '<iframe style="height:900px; width:100%" src="',
                 cert_file,
                 '"></iframe>'
             ))
