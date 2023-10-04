@@ -6,7 +6,7 @@ templatePath <- function(file = c("certificate", "letter")) {
         letter = "LetterTemplate.txt"
     )
     system.file(
-        "resources", filename, package = "BiocCertificates", mustWork = TRUE
+        "resources", filename, package = "BiocCertificate", mustWork = TRUE
     )
 }
 
@@ -31,7 +31,7 @@ templatePath <- function(file = c("certificate", "letter")) {
     edf <- eventData(eid)
     elogo <- system.file(
         "images", "bioconductor_logo_rgb.png",
-        package = "BiocCertificates", mustWork = TRUE
+        package = "BiocCertificate", mustWork = TRUE
     )
     cbind.data.frame(.data, edf, bioclogo = elogo)
 }

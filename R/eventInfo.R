@@ -7,7 +7,7 @@
 eventData <- function(eid) {
     edata <- system.file(
         "resources", "events.yml",
-        package = "BiocCertificates", mustWork = TRUE
+        package = "BiocCertificate", mustWork = TRUE
     )
     edata <- yaml::read_yaml(edata)
     if (!eid %in% names(edata[["events"]]))
@@ -17,12 +17,12 @@ eventData <- function(eid) {
     edata
 }
 
-.BiocCertificates_cache <- function() {
-    tools::R_user_dir("BiocCertificates", "cache")
+.BiocCertificate_cache <- function() {
+    tools::R_user_dir("BiocCertificate", "cache")
 }
 
 .get_cache <- function() {
-    BiocFileCache(cache = .BiocCertificates_cache())
+    BiocFileCache(cache = .BiocCertificate_cache())
 }
 
 #' @importFrom BiocFileCache BiocFileCache bfcquery bfcdownload bfcneedsupdate

@@ -1,4 +1,4 @@
-Package: BiocCertificates
+Package: BiocCertificate
 Title: Generate Conference Certificates
 Version: 0.99.0
 Authors@R: person(
