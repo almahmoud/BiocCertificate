@@ -36,9 +36,19 @@ templatePath <- function(file = c("certificate", "letter")) {
     cbind.data.frame(.data, edf, bioclogo = elogo)
 }
 
+.preprocessData <- function(.data) {
+    if (length(.data[["address"]]))
+        .data[["address"]] <-
+            gsub("\n", "\\\\", .data[["address"]], fixed = TRUE)
+    if (length(.data[["eurl"]]))
+        .data[["eurl"]] <- paste0("\\url{", .data[["eurl"]], "}")
+    .data
+}
+
 certificate <- function(template = "certificate", .data, file) {
     stub <- basename(file)
     .data <- .growData(.data)
+    .data <- .preprocessData(.data)
     .checkData(.data)
     template <- templatePath(template)
     templateCert <- readLines(template)
