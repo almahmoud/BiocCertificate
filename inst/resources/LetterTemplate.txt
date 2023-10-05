@@ -13,9 +13,8 @@ papersize: letter
 
 \begin{letter}
 {
-  Kathleen Kelly,\\
-  The Shop Around The Corner,\\
-  Small Corner, NYC.
+  {{fullname}}\\
+  {{address}}
 }
 
 \begin{center}
@@ -29,8 +28,13 @@ papersize: letter
 
 \opening{To Whom It May Concern:}
 
-On behalf of the Organizing Committee for {{ename}} held in {{elocation}},
-thank you for your participation. This letter certifies that {{fullname}}
+On behalf of the Organizing Committee for
+
+{\it {{ename}} \\[.25cm]}
+{{elocation}}
+
+We would like to thank you for your participation.
+This letter certifies that {{fullname}}
 was a participant at {{ename}}.
 
 Please visit {{eurl}} for additional conference information.
