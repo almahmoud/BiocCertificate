@@ -10,6 +10,7 @@ eventData <- function(eid) {
         package = "BiocCertificate", mustWork = TRUE
     )
     edata <- yaml::read_yaml(edata)
+    eid <- tolower(eid)
     if (!eid %in% names(edata[["events"]]))
         stop("Event ID not supported; contact organizers")
     edata <- as.data.frame(edata[["events"]][[eid]])
