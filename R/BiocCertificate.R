@@ -23,6 +23,10 @@ appCSS <- paste(
 #' full name in the app and click on submit. An iframe pop-up will show
 #' the certificate along with a download / print button.
 #'
+#' @param \ldots Inputs to the main function are not used.
+#'
+#' @return Called for the side effect of displaying the shiny app.
+#'
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
 #'   html
 #' @export

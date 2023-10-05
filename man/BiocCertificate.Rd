@@ -6,6 +6,12 @@
 \usage{
 BiocCertificate(...)
 }
+\arguments{
+\item{\ldots}{Inputs to the main function are not used.}
+}
+\value{
+Called for the side effect of displaying the shiny app.
+}
 \description{
 The function invokes a shiny app for attendees to generate their own
 certificate of attendance. This is done with the provided event identifier
