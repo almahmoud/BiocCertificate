@@ -54,6 +54,13 @@ BiocCertificate <- function(...) {
             div(class = "sidebar",
                 sidebarPanel(
                     div(
+                        id = "template",
+                        radioButtons(
+                            "template", "Select format",
+                            c("certificate", "letter"), "certificate"
+                        )
+                    ),
+                    div(
                         id = "presubmit",
                         textInput(
                             "eid",
@@ -142,7 +149,14 @@ BiocCertificate <- function(...) {
                 },
                 logical(1L)
             )
-            mandatoryFilled <- all(mandatoryFilled)
+            if (identical(input$template, "letter"))
+                hasAddress <- BiocBaseUtils::isScalarCharacter(
+                    input[["address"]]
+                )
+            else
+                hasAddress <- TRUE
+
+            mandatoryFilled <- all(mandatoryFilled, hasAddress)
             toggleState(id = "submit", condition = mandatoryFilled)
         })
         formData <- reactive({
@@ -174,9 +188,11 @@ BiocCertificate <- function(...) {
             cert_file <- paste0(
                 local,
                 certificate(
+                    template = input$template,
                     .data = formData(),
                     file =  paste0(
-                        gsub("\\s+", "_", input$fullname), "_certificate.pdf"
+                        gsub("\\s+", "_", input$fullname),
+                        "_", input$template, ".pdf"
                     )
                 )
             )
