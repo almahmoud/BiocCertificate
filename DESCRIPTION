@@ -11,6 +11,8 @@ Description: A shiny app to generate conference certificates from a template.
 Depends: shiny
 Imports:
   BiocBaseUtils,
+  BiocFileCache,
+  RCurl,
   rmarkdown,
   shinyjs,
   whisker,

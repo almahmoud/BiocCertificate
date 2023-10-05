@@ -1,3 +1,4 @@
+#' @import shiny
 mandatory <- function(label) {
     tagList(
         label,
@@ -14,6 +15,7 @@ appCSS <- paste(
 .MANDATORY_DATA_NAMES <- c("eid", "ename", "edate", "elocation", "fullname")
 
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
+#'   html
 #' @export
 BiocCertificate <- function(...) {
     options(
