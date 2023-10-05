@@ -14,6 +14,15 @@ appCSS <- paste(
 
 .MANDATORY_DATA_NAMES <- c("eid", "ename", "edate", "elocation", "fullname")
 
+#' Generate a Bioconductor conference attendance certificate
+#'
+#' @description
+#' The function invokes a shiny app for attendees to generate their own
+#' certificate of attendance. This is done with the provided event identifier
+#' (`Event ID`). Attendees must enter the event identifier and their
+#' full name in the app and click on submit. An iframe pop-up will show
+#' the certificate along with a download / print button.
+#'
 #' @importFrom shinyjs show hide hidden enable disable inlineCSS toggleState
 #'   html
 #' @export
