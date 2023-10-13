@@ -136,6 +136,7 @@ BiocCertificate <- function(...) {
             eid <- input[["eid"]]
             ename <- gsub("bioc", "Bioconductor ", eid, ignore.case = TRUE)
             ename <- gsub("euro", "European ", ename, ignore.case = TRUE)
+            ename <- gsub("asia", "Asia ", ename, ignore.case = TRUE)
             updateTextInput(session, "ename", value = ename)
             eurl <- .genEurl(eid)
             updateTextInput(session, "eurl", value = eurl)
