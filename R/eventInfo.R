@@ -23,7 +23,7 @@ eventData <- function(eid) {
 }
 
 .get_cache <- function() {
-    BiocFileCache(cache = .BiocCertificate_cache())
+    BiocFileCache(cache = .BiocCertificate_cache(), ask = FALSE)
 }
 
 #' @importFrom BiocFileCache BiocFileCache bfcquery bfcdownload bfcneedsupdate
