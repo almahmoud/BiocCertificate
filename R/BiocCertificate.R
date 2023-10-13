@@ -193,7 +193,7 @@ BiocCertificate <- function(...) {
                     .data = formData(),
                     file =  paste0(
                         gsub("\\s+", "_", input$fullname),
-                        "_", input$template, ".pdf"
+                        "_", input$eid, "_", input$template, ".pdf"
                     )
                 )
             )
