@@ -1,7 +1,6 @@
 ---
 title: ''
 output: pdf_document
-latex_engine: xelatex
 classoption: landscape
 header-includes:
 - \renewcommand{\familydefault}{\sfdefault}

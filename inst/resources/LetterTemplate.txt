@@ -4,7 +4,6 @@ output:
   pdf_document:
     includes:
       in_header: {{preamble}}
-latex_engine: xelatex
 documentclass: letter
 papersize: letter
 ---
