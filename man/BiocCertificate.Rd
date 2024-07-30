@@ -19,3 +19,11 @@ certificate of attendance. This is done with the provided event identifier
 full name in the app and click on submit. An iframe pop-up will show
 the certificate along with a download / print button.
 }
+\details{
+Note that \code{LaTeX} is used to generate the PDF certificate and letter. The
+\code{LaTeX} templates are stored in the \code{inst} directory of the package. Consider
+installing \code{tinytex} R package and running \code{install_tinytex()} to ensure that
+the necessary \code{LaTeX} packages are available. The default engine in the
+template is \code{pdflatex}. Currently, changing this value is not supported
+without modifying the template.
+}

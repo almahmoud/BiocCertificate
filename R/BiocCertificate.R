@@ -23,6 +23,15 @@ appCSS <- paste(
 #' full name in the app and click on submit. An iframe pop-up will show
 #' the certificate along with a download / print button.
 #'
+#' @details
+#' Note that `LaTeX` is used to generate the PDF certificate and letter. The
+#' `LaTeX` templates are stored in the `inst` directory of the package. Consider
+#' installing `tinytex` R package and running `install_tinytex()` to ensure that
+#' the necessary `LaTeX` packages are available. The default engine in the
+#' template is `pdflatex`. Currently, changing this value is not supported
+#' without modifying the template.
+#'
+#'
 #' @param \ldots Inputs to the main function are not used.
 #'
 #' @return Called for the side effect of displaying the shiny app.
