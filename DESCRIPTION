@@ -1,6 +1,6 @@
 Package: BiocCertificate
 Title: Generate Conference Certificates
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: person(
     "Marcel", "Ramos", , "marcel.ramos@roswellpark.org",
     c("aut", "cre"), c(ORCID = "0000-0002-3242-0582")
@@ -21,3 +21,4 @@ License: Artistic-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Date: 2024-07-30
