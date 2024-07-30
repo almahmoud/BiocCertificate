@@ -1,0 +1,27 @@
+<tool id="interactivetool_biocshiny_bioccertificate" tool_type="interactive" name="BiocCertificate" version="0.1">
+    <description>BiocCertificate BiocShiny App</description>
+    <requirements>
+        <container type="docker">ghcr.io/bioconductor/bioccertificate:devel</container>
+    </requirements>
+    <entry_points>
+        <entry_point name="bioccertificate" requires_domain="True">
+            <port>3838</port>
+        </entry_point>
+    </entry_points>
+    <environment_variables>
+        <environment_variable name="HISTORY_ID">$__history_id__</environment_variable>
+        <environment_variable name="REMOTE_HOST">$__galaxy_url__</environment_variable>
+        <environment_variable name="GALAXY_URL">$__galaxy_url__</environment_variable>
+        <environment_variable name="API_KEY" inject="api_key" />
+    </environment_variables>
+    <command detect_errors="aggressive">/init</command>
+    <inputs>
+    </inputs>
+    <outputs>
+    </outputs>
+    <tests>
+    </tests>
+    <help>
+        This is an auto-generated wrapper for a BiocShiny application. See source and report issues at https://github.com/Bioconductor/BiocCertificate.
+    </help>
+</tool>
