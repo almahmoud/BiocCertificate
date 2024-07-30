@@ -45,7 +45,7 @@ eventData <- function(eid) {
 
 .genEurl <- function(key) {
     eurl <- paste0("https://", key, ".bioconductor.org")
-    if (!RCurl::url.exists(eurl))
-        stop("Event URL does not exist; check 'key'")
+    if (!crul::ok(eurl))
+        stop("Event URL does not exist or not available; check 'key'")
     eurl
 }

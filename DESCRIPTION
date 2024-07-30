@@ -12,7 +12,7 @@ Depends: shiny
 Imports:
   BiocBaseUtils,
   BiocFileCache,
-  RCurl,
+  crul,
   rmarkdown,
   shinyjs,
   whisker,
