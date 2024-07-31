@@ -1,7 +1,7 @@
 <tool id="interactivetool_biocshiny_bioccertificate" tool_type="interactive" name="BiocCertificate" version="0.1">
     <description>BiocCertificate BiocShiny App</description>
     <requirements>
-        <container type="docker">ghcr.io/bioconductor/bioccertificate:devel</container>
+        <container type="docker">ghcr.io/almahmoud/bioccertificate:devel</container>
     </requirements>
     <entry_points>
         <entry_point name="bioccertificate" requires_domain="True">
@@ -22,6 +22,6 @@
     <tests>
     </tests>
     <help>
-        This is an auto-generated wrapper for a BiocShiny application. See source and report issues at https://github.com/Bioconductor/BiocCertificate.
+        This is an auto-generated wrapper for a BiocShiny application. See source and report issues at https://github.com/almahmoud/BiocCertificate.
     </help>
 </tool>
