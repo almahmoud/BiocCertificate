@@ -191,12 +191,8 @@ BiocCertificate <- function(...) {
             })
         })
         output$pdfviewer <- renderText({
-            local <- paste0(
-                "http://", getOption("shiny.host"),
-                ":", getOption("shiny.port"), "/"
-            )
             cert_file <- paste0(
-                local,
+                "/",
                 certificate(
                     template = input$template,
                     .data = formData(),
