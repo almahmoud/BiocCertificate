@@ -6,7 +6,7 @@ COPY --chown=shiny:shiny . /tmp/repo/
 
 USER shiny
 
-RUN cd /tmp/repo && Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); BiocManager::install(ask=FALSE)" && Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); devtools::install('.', dependencies=TRUE, build_vignettes=TRUE, repos = BiocManager::repositories())" && rm -rf /tmp/repo
+RUN cd /tmp/repo && Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); BiocManager::install(ask=FALSE)" && Rscript -e "options(repos = c(CRAN = 'https://cran.r-project.org')); devtools::install('.', dependencies=TRUE, build_vignettes=TRUE, repos = BiocManager::repositories()); tinytex::install_tinytex()" && rm -rf /tmp/repo
 
 COPY --chown=shiny:shiny app.R /srv/shiny-server/biocshiny/app.R
 
